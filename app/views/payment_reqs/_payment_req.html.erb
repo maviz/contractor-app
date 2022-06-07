@@ -1,0 +1,25 @@
+<div id="<%= dom_id payment_req %>">
+  <p>
+    <strong>Amount:</strong>
+    <%= payment_req.amount %>
+  </p>
+
+  <p>
+    <strong>Currency:</strong>
+    <%= payment_req.currency %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= payment_req.description %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <%= payment_req.status %>
+  </p>
+    <p>
+      <%= link_to "Show this payment req", payment_req %>
+    </p>
+
+</div>
