@@ -12,7 +12,8 @@ class PaymentUpdateHandler
 
 	def update_record
 		pr = PaymentReq.find(args[:transaction_id])
-		return if pr.nil?
 		pr.update(status: args[:status])
+	rescue
+		nil
 	end
 end
