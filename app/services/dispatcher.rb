@@ -1,9 +1,8 @@
 class Dispatcher
-
 	cattr_accessor :connection, :channel
 	class << self
-		def dispatch msg = {}, ex 
-			event = channel.fanout("payment_reqs.#{ex}")
+		def dispatch msg = {}, ex = nil
+			event = channel.fanout("payment_reqs.create")
 			event.publish(msg.to_json)
 		end
 
@@ -15,5 +14,4 @@ class Dispatcher
 			@@connection ||= Bunny.new.tap { |con|  con.start }
 		end
 	end
-
 end

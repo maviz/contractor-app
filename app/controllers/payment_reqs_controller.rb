@@ -25,7 +25,6 @@ class PaymentReqsController < ApplicationController
 
     respond_to do |format|
       if @payment_req.save
-        Dispatcher.dispatch(@payment_req.attributes,'payment_reqs')
         format.html { redirect_to payment_req_url(@payment_req), notice: "Payment req was successfully created." }
         format.json { render :show, status: :created, location: @payment_req }
       else
